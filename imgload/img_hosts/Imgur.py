@@ -2,7 +2,7 @@ import re
 
 from requests_html import HTMLSession
 
-from imgload.img_hosts import ImageHost
+from imgload.img_hosts.ImageHost import ImageHost
 
 
 class ImgurCom(ImageHost):
