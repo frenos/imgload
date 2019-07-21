@@ -2,6 +2,8 @@ import inspect
 
 from requests_html import HTMLSession
 
+import imgload.img_hosts.ImageHost as ImageHost
+
 
 class ImgLoader():
 
