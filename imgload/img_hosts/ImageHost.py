@@ -1,4 +1,4 @@
-class ImageHost(object):
+class ImageHost():
 
     def __init__(self):
         self.base_url = None
