@@ -5,4 +5,14 @@
 It's an ideal companion for writing web-crawlers, just feed the urls to imgload and get the raw bytes or a finished PIL 'Image' back.
 
 ---
+## Supported Hosters:
+Currently the following image hosters are supported.
+* http://imgur.com/
+* http://www.imagevenue.com/
+* https://fastpic.ru/
 
+Further planned hosts:
+* http://www.imagebam.com/
+* https://www.turboimagehost.com/
+
+If you know other hosts that should be supported, create an Issue with a test file or send a pull request.
