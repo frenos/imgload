@@ -37,14 +37,19 @@ class ImgLoader():
 
         return None
 
-    def get_image_as_bytes(self, url):
-
+    def get_image_direct_link(self, url):
         correct_host_module = self.__get_correct_host__(url)
 
         if correct_host_module is None:
             return None
         self.__check_session__()
         direct_download_link = correct_host_module.get_link(link=url, session=self.session)
+        return direct_download_link
+
+    def get_image_as_bytes(self, url):
+        direct_download_link = self.get_image_direct_link(url)
+        if direct_download_link is None:
+            return None
         img_bytes = self.__download_link_as_bytes__(direct_download_link)
         return img_bytes
 
