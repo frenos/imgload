@@ -6,15 +6,23 @@ dist: xenial
 python:
   - '3.7'
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+    > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+  - "./cc-test-reporter before-build"
 install:
-  - 'pip install pipenv'
-  - 'pipenv install --dev'
+  - pip install pipenv
+  - pipenv install --dev
 script:
   - pytest --cov imgload
   - coverage xml
-
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+deploy:
+  on:
+    tags: true
+    branch: master
+  provider: pypi
+  user: "@token"
+  password:
+    secure: WeQYwgLFW/EwGwJ4Gdq40U4UPs/2wVUWBFzQFXqxn+qoYLD4Dkm709ywlJFQaLGUIZy8cIQGh28ouBW/LsPhZWQOmwvsc6eIEEIIqCwn/bDbRXler/gyei+3XudSdIpVAPDMKrujUniYpR2LRTzitYbgqCY975UnGkEb+k/dFVQZWDQbH0XqZ6uVRQmL1sK8uGGBG1AXkB6wkR3166RC8xsocp5LIU3i6mP45l1RCVLGggx8Bqd8mEpiZqvPlcy8kazcOLcnjnHrAAz85i+O5mvtw2Ps7IFZXTKamSQyZjAn2/0vr4NSOOvMZ91S/clf1CftRI9WVTuLj/l72RijgbJClfdHC2lDFpC5Z3V4KeDtW4QkGVx9XQjmFdTKGcFVxc3MmUfGWXLLPqRZb20ng1TC8BgHuOaHZIUbKcuqA0ibZv83X0OIGoAErl43WYZtqZ/7sL+IvpFNkDOmDa0CrgCQZoQzHk574FBqenFTFh0Z4jY4Q0s7WbEzh39O9qSSHf6Si451R1zo1H6HLnTAXDnHiRfxo48mLJ7ZCWFmRKwUFNI0E54qh20OBWo0jkA8t12IFXZhDdOYZBi1ESnrLzVjnl1YkrNyIcA9nvHET93X/d8p+HB9rXBXKyiZFEL6lQij97Xh/ykIQ0PXfrkCaUEcMQakatUONaOcFYdxN4g=
