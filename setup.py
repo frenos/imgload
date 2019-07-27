@@ -5,7 +5,7 @@ with open('README.md', "r") as readme_file:
 
 setup(
     name='imgload',
-    version='0.1',
+    version='0.2.0',
     description='An image downloading library',
     long_description=long_description,
     long_description_content_type="text/markdown",
