@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2019-07-27
+### Added
+
+### Changed
+- fixed pypi package build
+
+### Removed
+
+
 ## [0.2.0] - 2019-07-27
 ### Added
 - Support for getting a PIL.Image back from a url (using [Pillow](https://pillow.readthedocs.io/en/stable/)) 
@@ -16,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/frenos/imgload/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/frenos/imgload/compare/v0.1...v0.2.0
 [0.0.1]: https://github.com/frenos/imgload/releases/tag/v0.1
