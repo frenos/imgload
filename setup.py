@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open('README.md', "r") as readme_file:
     long_description = readme_file.read()
@@ -9,7 +9,7 @@ setup(
     description='An image downloading library',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    py_modules=["imgload"],
+    packages=find_packages(exclude=['tests']),
     install_requires=['requests-html', 'pillow'],
     python_requires='>=3.7',
     classifiers=[
