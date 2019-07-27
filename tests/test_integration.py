@@ -26,3 +26,18 @@ class TestIntegration(TestCase):
 
         dl_img_bytes = my_image_loader.get_image_as_bytes('https://postimg.cc/NyHVjkSZ')
         self.assertEqual(sample_img_bytes, dl_img_bytes)
+
+    def test_get_link(self):
+        my_image_loader = ImgLoader()
+
+        dl_link = my_image_loader.get_image_direct_link('https://imgur.com/a/jpwwwq6')
+        self.assertEqual('https://i.imgur.com/W0Cu3zE.png', dl_link)
+
+    def test_pil_image(self):
+        my_image_loader = ImgLoader()
+
+        downloaded_pil = my_image_loader.get_image_as_pil('https://imgur.com/a/jpwwwq6')
+
+        self.assertIsNotNone(downloaded_pil)
+        self.assertEqual(800, downloaded_pil.width)
+        self.assertEqual(600, downloaded_pil.height)

@@ -1,5 +1,7 @@
 import inspect
+import io
 
+from PIL import Image
 from requests_html import HTMLSession
 
 import imgload.img_hosts.ImageHost as ImageHost
@@ -54,4 +56,9 @@ class ImgLoader():
         return img_bytes
 
     def get_image_as_pil(self, url):
-        pass
+        image_bytes = self.get_image_as_bytes(url)
+        if image_bytes is None:
+            return None
+        img_bytes_stream = io.BytesIO(image_bytes)
+        pil_image = Image.open(img_bytes_stream)
+        return pil_image

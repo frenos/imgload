@@ -10,7 +10,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     py_modules=["imgload"],
-    install_requires=['requests-html'],
+    install_requires=['requests-html', 'pillow'],
     python_requires='>=3.7',
     classifiers=[
         "Programming Language :: Python :: 3",
