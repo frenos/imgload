@@ -1,10 +1,13 @@
-import inspect
 import io
 
 from PIL import Image
 from requests_html import HTMLSession
 
-import imgload.img_hosts.ImageHost as ImageHost
+from imgload.img_hosts.Fastpic import FastpicRu
+from imgload.img_hosts.Imagebam import ImagebamCom
+from imgload.img_hosts.Imagevenue import ImagevenueCom
+from imgload.img_hosts.Imgur import ImgurCom
+from imgload.img_hosts.Postimg import PostimgCC
 
 
 class ImgLoader():
@@ -12,10 +15,15 @@ class ImgLoader():
     def __init__(self):
         self.session = None
         self.available_hosts = list()
-        hoster_modules = [obj() for obj in ImageHost.ImageHost.__subclasses__()]
-        for hoster in hoster_modules:
-            for clazz in inspect.getmembers(hoster, inspect.isclass):
-                self.available_hosts.append(clazz[1]())
+        self.__init_available_hosts__()
+
+    def __init_available_hosts__(self):
+        self.available_hosts.append(FastpicRu())
+        self.available_hosts.append(ImagebamCom())
+        self.available_hosts.append(ImagevenueCom())
+        self.available_hosts.append(ImgurCom())
+        self.available_hosts.append(PostimgCC)
+
 
     def __check_session__(self):
         if self.session is None:
