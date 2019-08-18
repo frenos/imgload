@@ -22,7 +22,7 @@ class ImgLoader():
         self.available_hosts.append(ImagebamCom())
         self.available_hosts.append(ImagevenueCom())
         self.available_hosts.append(ImgurCom())
-        self.available_hosts.append(PostimgCC)
+        self.available_hosts.append(PostimgCC())
 
 
     def __check_session__(self):

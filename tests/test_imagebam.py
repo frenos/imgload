@@ -29,5 +29,5 @@ class TestImagebam(TestCase):
 
         result = host_instance.get_link(testing_url, req_session)
         self.assertIsNotNone(result)
-        self.assertEqual('http://images2.imagebam.com/a1/6e/55/294d3c1284036864.png',
+        self.assertEqual('https://images2.imagebam.com/a1/6e/55/294d3c1284036864.png',
                          result)
